@@ -1,14 +1,13 @@
 print('Copying checkpoint from GCS. This will take less than a minute...')
-# This will download the mel_2bar_big checkpoint. There are more checkpoints that you
-# can use with this model, depending on what kind of output you want
+# This will download the mel_2bar_big checkpoint
 # See the list of checkpoints: https://github.com/magenta/magenta/tree/master/magenta/models/music_vae#pre-trained-checkpoints
 !gsutil -q -m cp -R gs://download.magenta.tensorflow.org/models/music_vae/colab2/checkpoints/mel_2bar_big.ckpt.* /content/
 
-# Import dependencies.
+# Import dependencies
 from magenta.models.music_vae import configs
 from magenta.models.music_vae.trained_model import TrainedModel
 
-# Initialize the model.
+# Initialize the model
 print("Initializing Music VAE...")
 music_vae = TrainedModel(
       configs.CONFIG_MAP['cat-mel_2bar_big'], 
