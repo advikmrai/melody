@@ -1,4 +1,4 @@
-Using magenta
+  Using magenta
 
 #@test {"output": "ignore"}
 print('Installing dependencies...')
