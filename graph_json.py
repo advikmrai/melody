@@ -25,9 +25,13 @@ def analyze_emotion_data(input_dir, output_dir):
             with open(filepath, 'r') as file:
                 data = json.load(file)
 
-                # Extract relevant data
                 timestamps.append(data["camera"]["frameTimestamp"])
-                dominant_emotions.append(data["face_emotion"]["dominantEmotion"])
+
+                if "face_emotion" in data and "dominantEmotion" in data["face_emotion"]:
+                    dominant_emotions.append(data["face_emotion"]["dominantEmotion"])
+
+                else:
+                    dominant_emotions.append("")
                 genders.append(data["face_gender"]["mostConfident"])
                 
                 #features
